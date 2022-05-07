@@ -4,9 +4,11 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.function.Consumer;
+import java.util.function.Function;
+
 /*
  *Author: Prasad
- *Create a Number Play List and Iterate and print each element
+ *Ability to Iterate through List of number and print each element in double
  */
 public class NumberPlayList<i> {
     public static void main(String[] args) {
@@ -41,13 +43,21 @@ public class NumberPlayList<i> {
 
         //Method 4: Explicit lamda function
         Consumer<Integer> myListAction = n->{
-            System.out.println("Mth4: forEach lamda impl value" + n);
+            System.out.println("Mth4: forEach lambda impl value" + n);
         };
         numberList.forEach(myListAction);
 
         //Meththod 5:Implicit lamda function
         numberList.forEach(n->{
-            System.out.println("Mth5: forEach lamda impl value: " + n);
+            System.out.println("Mth5: forEach lambda impl value: " + n);
         });
+
+        //Method 6: Implicit lamda function to print double value
+        Function<Integer, Double> function = Integer::doubleValue;
+        numberList.forEach( n-> {
+            System.out.println("Mth6: forEach lambda double value: " + function.apply(n));
+        });
+
+
     }
 }
