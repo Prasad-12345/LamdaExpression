@@ -1,13 +1,16 @@
 package com.bridgelabz.lamdaexpression;
 /*
  *Author: Prasad
- * Develop Math Operation App to perform Math Functions– Addition,Subtraction and Division
+ * Ability to show the results of Math Operation of Addition,Subtraction and Division
  */
 
 //Function interface 
 @FunctionalInterface
 interface IMathFunction {
     int calculate(int a, int b);
+    static void printResult(int a, int b, String function, IMathFunction obj){
+        System.out.println("The result of" + " " + function + " " + "is" + " " + obj.calculate(a, b));
+    }
 }
 public class MathOperationApp {
     public static void main(String[] args) {
@@ -20,10 +23,10 @@ public class MathOperationApp {
         //Multipication
         IMathFunction multiply = (a, b)->(a * b);
 
-        //Invoking lamda expression with functional interface and printing return values
-        System.out.println("Additon: " + add.calculate(10,5));
-        System.out.println("Substraction: " + substract.calculate(10,5));
-        System.out.println("Division: " + division.calculate(10,5));
-        System.out.println("Multipication: " + multiply.calculate(10,5));
+        //calling static function 
+        IMathFunction.printResult(10, 5, "Addition", add);
+        IMathFunction.printResult(10, 5, "Substraction", substract);
+        IMathFunction.printResult(10, 5, "Division", division);
+        IMathFunction.printResult(10, 5, "Multipication", multiply);
     }
 }
