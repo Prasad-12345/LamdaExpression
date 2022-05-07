@@ -5,10 +5,11 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Function;
+import java.util.function.Predicate;
 
 /*
  *Author: Prasad
- *Ability to Iterate through List of number and print each element in double
+ *Ability to Iterate through List of number and print only if it is even
  */
 public class NumberPlayList<i> {
     public static void main(String[] args) {
@@ -58,6 +59,11 @@ public class NumberPlayList<i> {
             System.out.println("Mth6: forEach lambda double value: " + function.apply(n));
         });
 
+        //Method7: Implicit lamda function to chech even
+        Predicate<Integer> isEven = n -> (n % 2 == 0);
+        numberList.forEach(n ->{
+            System.out.println("Mth7: forEach lambda even number: " + isEven.test(n));
+        });
 
     }
 }
