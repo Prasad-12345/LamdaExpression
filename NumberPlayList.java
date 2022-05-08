@@ -1,6 +1,7 @@
 package com.bridgelabz.lamdaexpression;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 import java.util.function.Consumer;
@@ -80,5 +81,15 @@ public class NumberPlayList<i> {
         //Method10: To peek first even number
         Integer firstEvenNumber = numberList.stream().filter(isEven).peek(n -> System.out.println("Peek even number: " + n)).findFirst().orElse(null);
         System.out.println("Mth10: First even: " + firstEvenNumber);
+
+        //Method11: Minimun even number
+        Integer min = numberList.stream().filter(isEven).min((n1, n2) -> n1-n2).orElse(null);
+        System.out.println("Mth11:  Min even: " + min);
+
+        //Method12: Maximum even number
+        Integer max = numberList.stream().filter(isEven).max(Comparator.comparing(Integer::intValue)).orElse(null);
+        System.out.println("Mth12: Max Even: " + max);
+
+        
     }
 }
