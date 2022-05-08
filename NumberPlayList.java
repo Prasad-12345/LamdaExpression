@@ -9,7 +9,6 @@ import java.util.function.Predicate;
 
 /*
  *Author: Prasad
- *Ability to Iterate through List of number and print only if it is even
  */
 public class NumberPlayList<i> {
     public static void main(String[] args) {
@@ -62,7 +61,15 @@ public class NumberPlayList<i> {
         //Method7: Implicit lamda function to chech even
         Predicate<Integer> isEven = n -> (n % 2 == 0);
         numberList.forEach(n ->{
-            System.out.println("Mth7: forEach lambda even number: " + isEven.test(n));
+         //   System.out.println("Mth7: forEach lambda even number: " + isEven.test(n));
+            if(isEven.test(n)){
+                System.out.println("Mth7: forEach lambda even number: " + n);
+            }
+        });
+
+        //Method8: Processing the stream
+        numberList.stream().forEach(n -> {
+            System.out.println("Mth8: Stream forEachValue: " + n);
         });
 
     }
