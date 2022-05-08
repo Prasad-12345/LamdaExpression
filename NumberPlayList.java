@@ -74,7 +74,7 @@ public class NumberPlayList<i> {
         });
 
         //Method9: Process the stream apply operation on the stream and store the result
-        List<Double> streamList = numberList.stream().map(function).collect(Collectors.toList());
+        List<Double> streamList = numberList.stream().filter(isEven).map(function).collect(Collectors.toList());
         System.out.println("Mth9: Printing double list: " + streamList);
     }
 }
