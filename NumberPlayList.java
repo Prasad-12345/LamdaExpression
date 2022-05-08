@@ -76,5 +76,9 @@ public class NumberPlayList<i> {
         //Method9: Process the stream apply operation on the stream and store the result
         List<Double> streamList = numberList.stream().filter(isEven).map(function).collect(Collectors.toList());
         System.out.println("Mth9: Printing double list: " + streamList);
+
+        //Method10: To peek first even number
+        Integer firstEvenNumber = numberList.stream().filter(isEven).peek(n -> System.out.println("Peek even number: " + n)).findFirst().orElse(null);
+        System.out.println("Mth10: First even: " + firstEvenNumber);
     }
 }
