@@ -83,13 +83,16 @@ public class NumberPlayList<i> {
         System.out.println("Mth10: First even: " + firstEvenNumber);
 
         //Method11: Minimun even number
-        Integer min = numberList.stream().filter(isEven).min((n1, n2) -> n1-n2).orElse(null);
+        Integer min = numberList.stream().filter(isEven).min(Integer::compare).orElse(null);
         System.out.println("Mth11:  Min even: " + min);
 
         //Method12: Maximum even number
         Integer max = numberList.stream().filter(isEven).max(Comparator.comparing(Integer::intValue)).orElse(null);
         System.out.println("Mth12: Max Even: " + max);
 
-        
+        //Method13: Sum, Count and Average of numbers
+        Integer sum = numberList.stream().reduce(0, Integer::sum);
+        Long count = numberList.stream().count();
+        System.out.println("Mth13: Avg of " + sum +"/"+count+"="+sum/count);
     }
 }
