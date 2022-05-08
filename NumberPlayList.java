@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 /*
  *Author: Prasad
@@ -72,5 +73,8 @@ public class NumberPlayList<i> {
             System.out.println("Mth8: Stream forEachValue: " + n);
         });
 
+        //Method9: Process the stream apply operation on the stream and store the result
+        List<Double> streamList = numberList.stream().map(function).collect(Collectors.toList());
+        System.out.println("Mth9: Printing double list: " + streamList);
     }
 }
