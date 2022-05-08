@@ -94,5 +94,11 @@ public class NumberPlayList<i> {
         Integer sum = numberList.stream().reduce(0, Integer::sum);
         Long count = numberList.stream().count();
         System.out.println("Mth13: Avg of " + sum +"/"+count+"="+sum/count);
+
+        //Method14: Checking all even, single even or none are divisible by 6
+        boolean allEven = numberList.stream().allMatch(isEven);
+        boolean oneEven = numberList.stream().anyMatch(isEven);
+        boolean noneMultipleOfSix = numberList.stream().noneMatch(i -> (i > 0) && (i % 6 == 0));
+        System.out.println("allEven: " + allEven + "oneEven: " + oneEven + "noneMultipleOfSix: " + noneMultipleOfSix);
     }
 }
